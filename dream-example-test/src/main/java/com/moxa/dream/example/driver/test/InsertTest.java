@@ -4,15 +4,13 @@ import com.moxa.dream.driver.session.SqlSession;
 import com.moxa.dream.driver.session.SqlSessionFactory;
 import com.moxa.dream.driver.session.SqlSessionFactoryBuilder;
 import com.moxa.dream.example.driver.table.User;
-import com.moxa.dream.example.driver.view.MyView;
-import com.moxa.dream.example.driver.view.ViewUser;
 import com.moxa.dream.module.mapper.MethodInfo;
 import com.moxa.dream.module.reflect.util.NonCollection;
 import com.moxa.dream.util.resource.ResourceUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+
 
 public class InsertTest {
     static SqlSessionFactory sqlSessionFactory;
