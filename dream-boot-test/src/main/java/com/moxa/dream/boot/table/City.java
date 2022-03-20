@@ -16,13 +16,14 @@
 package com.moxa.dream.boot.table;
 
 import com.moxa.dream.module.annotation.Column;
+import com.moxa.dream.module.annotation.Id;
 import com.moxa.dream.module.annotation.Table;
 
 import java.io.Serializable;
 
 @Table
 public class City implements Serializable {
-
+    @Id
     @Column
     private int id;
     @Column

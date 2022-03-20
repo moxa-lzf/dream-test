@@ -10,17 +10,17 @@ import java.sql.Timestamp;
 public class User {
     @Column
     @Id
-    private int id;
+    private long id;
     @Column
     private String name;
     @Column
     private Timestamp createTime;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -1,0 +1,5 @@
+<configuration xmlns="http://moxa.org/schema/config">
+    <cacheFactory>
+        <property name="enabled" value="false"/>
+    </cacheFactory>
+</configuration>
