@@ -25,7 +25,7 @@ import java.io.Serializable;
 public class City implements Serializable {
     @Id
     @Column
-    private int id;
+    private Integer id;
     @Column
     private String name;
     @Column

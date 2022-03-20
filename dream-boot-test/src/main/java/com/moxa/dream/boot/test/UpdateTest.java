@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootApplication.class)
-public class QueryTest {
+public class UpdateTest {
     @Autowired
     private CityService cityService;
     @Autowired
@@ -20,19 +20,25 @@ public class QueryTest {
     static int count = 1000000;
 
     @Test
-    public void test() {
+    public void updateId() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            City city = cityService.findByState("CA");
+            City city=new City();
+            city.setId(1);
+            city.setName("name"+i);
+            city.setCountry("country"+i);
+            sessionMapper.updateById(city);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
-
     @Test
-    public void testId() {
+    public void updateNonId() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            sessionMapper.selectById(City.class, 1);
+            City city=new City();
+            city.setId(1);
+            city.setCountry("country"+i);
+            sessionMapper.updateNonById(city);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
