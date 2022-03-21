@@ -31,7 +31,7 @@ public class QueryTest {
     @Test
     public void testId() {
         long l = System.currentTimeMillis();
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < 1; i++) {
             sessionMapper.selectById(City.class, 1);
         }
         System.out.println(System.currentTimeMillis() - l);

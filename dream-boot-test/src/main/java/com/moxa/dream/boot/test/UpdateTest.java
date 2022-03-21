@@ -22,14 +22,14 @@ public class UpdateTest {
     @Test
     public void updateId() {
         long l = System.currentTimeMillis();
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < 1; i++) {
             City city=new City();
             city.setId(1);
             city.setName("name"+i);
             city.setCountry("country"+i);
             sessionMapper.updateById(city);
         }
-        System.out.println(System.currentTimeMillis() - l);
+//        System.out.println(System.currentTimeMillis() - l);
     }
     @Test
     public void updateNonId() {
