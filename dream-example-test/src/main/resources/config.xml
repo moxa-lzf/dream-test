@@ -8,8 +8,7 @@
     <tableFactory>
         <mapping package="com.moxa.dream.example.driver.table"/>
     </tableFactory>
-    <typeHandlerFactory type="com.moxa.dream.module.typehandler.factory.BaseTypeHandlerFactory">
-        <typeHandlerWrapper type="com.moxa.dream.test.core.MyTypeHandlerWrapper"/>
+    <typeHandlerFactory type="com.moxa.dream.module.typehandler.factory.DefaultTypeHandlerFactory">
     </typeHandlerFactory>
     <dialectFactory type="com.moxa.dream.driver.factory.DefaultDialectFactory" dialect="${mysql}">
         <property name="a" value="b"/>
