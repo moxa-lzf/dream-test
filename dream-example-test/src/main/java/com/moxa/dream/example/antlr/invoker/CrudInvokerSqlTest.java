@@ -35,8 +35,7 @@ public class CrudInvokerSqlTest extends AbstractSqlTest {
     }
 
     public void testWhereInvoker() {
-        PackageStatement packageStatement = createStatement("@where:fleet(`select 1 from dual`,1=1)", null);
-//        DMLStatement dmlStatement = createStatement("@where:inject(`select 1 from dual`,1=1)", null);
+        PackageStatement packageStatement = createStatement("@where(`select 1 from dual`,1=1)", null);
         try {
             System.out.println(new ToMYSQL().toResult(packageStatement, invokerFactoryList, null));
         } catch (InvokerException e) {
