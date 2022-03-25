@@ -2,13 +2,15 @@ package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.service.CityService;
-import com.moxa.dream.boot.spring.mapper.SessionMapper;
+import com.moxa.dream.boot.struct.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootApplication.class)
@@ -33,6 +35,16 @@ public class QueryTest {
         long l = System.currentTimeMillis();
         for (int i = 0; i < 1; i++) {
             sessionMapper.selectById(City.class, 1);
+        }
+        System.out.println(System.currentTimeMillis() - l);
+    }
+    @Test
+    public void testd(){
+        long l = System.currentTimeMillis();
+        for (int i = 0; i < count; i++) {
+            City city=new City();
+            city.setId(1);
+            List<City> cities = sessionMapper.selectList(City.class, city);
         }
         System.out.println(System.currentTimeMillis() - l);
     }

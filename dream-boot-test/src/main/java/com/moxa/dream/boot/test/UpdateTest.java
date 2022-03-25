@@ -2,7 +2,7 @@ package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.service.CityService;
-import com.moxa.dream.boot.spring.mapper.SessionMapper;
+import com.moxa.dream.boot.struct.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
 import org.junit.Test;
 import org.junit.runner.RunWith;
