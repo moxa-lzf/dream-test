@@ -15,7 +15,7 @@
  */
 package com.moxa.dream.boot.table;
 
-import com.moxa.dream.boot.struct.annotation.Equal;
+import com.moxa.dream.boot.template.annotation.Equal;
 import com.moxa.dream.module.annotation.Column;
 import com.moxa.dream.module.annotation.Id;
 import com.moxa.dream.module.annotation.Table;
@@ -30,6 +30,7 @@ public class City implements Serializable {
     private Integer id;
     @Column
     private String name;
+    @Equal("state")
     @Column
     private String state;
     @Column

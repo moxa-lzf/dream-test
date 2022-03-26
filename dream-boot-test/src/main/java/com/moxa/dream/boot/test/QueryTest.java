@@ -2,7 +2,7 @@ package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.service.CityService;
-import com.moxa.dream.boot.struct.mapper.SessionMapper;
+import com.moxa.dream.boot.template.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,17 +33,18 @@ public class QueryTest {
     @Test
     public void testId() {
         long l = System.currentTimeMillis();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < count; i++) {
             sessionMapper.selectById(City.class, 1);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
     @Test
-    public void testd(){
+    public void testSelectList(){
         long l = System.currentTimeMillis();
-        for (int i = 0; i < count; i++) {
-            City city=new City();
+        City city=new City();
             city.setId(1);
+//        city.setState("CA");
+        for (int i = 0; i < count; i++) {
             List<City> cities = sessionMapper.selectList(City.class, city);
         }
         System.out.println(System.currentTimeMillis() - l);
