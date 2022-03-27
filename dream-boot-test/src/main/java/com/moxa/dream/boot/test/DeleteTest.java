@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootApplication.class)
 public class DeleteTest {
@@ -17,10 +19,18 @@ public class DeleteTest {
     static int count = 1000000;
 
     @Test
-    public void deleteId() {
+    public void deleteById() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
             sessionMapper.deleteById(City.class,1);
+        }
+        System.out.println(System.currentTimeMillis() - l);
+    }
+    @Test
+    public void deleteByIds() {
+        long l = System.currentTimeMillis();
+        for (int i = 0; i < count; i++) {
+            sessionMapper.deleteByIds(City.class, List.of(1,2,3));
         }
         System.out.println(System.currentTimeMillis() - l);
     }

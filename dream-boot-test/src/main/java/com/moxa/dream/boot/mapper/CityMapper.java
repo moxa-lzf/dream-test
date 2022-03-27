@@ -15,12 +15,16 @@
  */
 package com.moxa.dream.boot.mapper;
 
+import com.moxa.dream.boot.spring.annotation.SessionControl;
 import com.moxa.dream.boot.table.City;
+import com.moxa.dream.driver.page.annotation.PageQuery;
 import com.moxa.dream.module.annotation.Mapper;
 import com.moxa.dream.module.annotation.Sql;
 
 @Mapper
 public interface CityMapper {
+  @PageQuery
+  @SessionControl
   @Sql("select id, name, state, country from city where state = @$(state)")
   City findByState(String state);
   @Sql("update city set name=null where state = @$(state)")
