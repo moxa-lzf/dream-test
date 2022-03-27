@@ -3,9 +3,14 @@ package com.moxa.dream.example.driver.test;
 import com.moxa.dream.driver.session.SqlSession;
 import com.moxa.dream.driver.session.SqlSessionFactory;
 import com.moxa.dream.driver.session.SqlSessionFactoryBuilder;
+import com.moxa.dream.example.driver.mapper.DeptMapper;
+import com.moxa.dream.example.driver.mapper.UserMapper;
 import com.moxa.dream.example.driver.table.User;
 import com.moxa.dream.example.driver.view.MyView;
+import com.moxa.dream.example.driver.view.MyViewUser;
+import com.moxa.dream.example.driver.view.ViewDept;
 import com.moxa.dream.example.driver.view.ViewUser;
+import com.moxa.dream.module.antlr.invoker.AllInvoker;
 import com.moxa.dream.module.mapper.MethodInfo;
 import com.moxa.dream.module.reflect.util.NonCollection;
 import com.moxa.dream.util.resource.ResourceUtil;
@@ -127,5 +132,54 @@ public class QueryTest {
             }
         }
         System.out.println((System.currentTimeMillis() - l) + "\t\t" + value);
+    }
+    @Test
+    public void userMapper$SelectUserById() {
+        long l = System.currentTimeMillis();
+        Object value = null;
+        for (int i = 0; i < count; i++) {
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+                MyViewUser myViewUser = userMapper.selectUserById(1);
+            }
+        }
+        System.out.println((System.currentTimeMillis() - l));
+    }
+    @Test
+    public void userMapper$SelectUserList() {
+        long l = System.currentTimeMillis();
+        Object value = null;
+        for (int i = 0; i < count; i++) {
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+                List<MyViewUser> myViewUsers = userMapper.selectUserList();
+            }
+        }
+        System.out.println((System.currentTimeMillis() - l));
+    }
+    @Test
+    public void deptMapper$selectDeptByUserId() {
+        long l = System.currentTimeMillis();
+        Object value = null;
+        for (int i = 0; i < count; i++) {
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                DeptMapper deptMapper = sqlSession.getMapper(DeptMapper.class);
+                List<ViewDept> viewDepts = deptMapper.selectDeptByUserId(1);
+            }
+        }
+        System.out.println((System.currentTimeMillis() - l));
+    }
+    @Test
+    public void userMapper$selectUserWithDeptById() {
+        long l = System.currentTimeMillis();
+        Object value = null;
+        for (int i = 0; i < count; i++) {
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+                MyViewUser myViewUser = userMapper.selectUserWithDeptById(1);
+                value=myViewUser;
+            }
+        }
+        System.out.println((System.currentTimeMillis() - l));
     }
 }

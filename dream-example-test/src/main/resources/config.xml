@@ -5,18 +5,18 @@
     <cacheFactory type="com.moxa.dream.module.cache.factory.DefaultCacheFactory">
                 <property name="enabled" value="false"/>
     </cacheFactory>
+    <mapperFactory>
+        <mapping package="com.moxa.dream.example.driver.mapper"/>
+    </mapperFactory>
     <tableFactory>
         <mapping package="com.moxa.dream.example.driver.table"/>
     </tableFactory>
     <typeHandlerFactory type="com.moxa.dream.module.typehandler.factory.DefaultTypeHandlerFactory">
     </typeHandlerFactory>
     <dialectFactory type="com.moxa.dream.driver.factory.DefaultDialectFactory" dialect="${mysql}">
-        <property name="a" value="b"/>
     </dialectFactory>
     <transactionFactory type="com.moxa.dream.module.transaction.factory.JdbcTransactionFactory">
-        <property name="a" value="b"/>
     </transactionFactory>
     <dataSourceFactory type="${ds}">
-        <property name="ds" value="${ds}"/>
     </dataSourceFactory>
 </configuration>
