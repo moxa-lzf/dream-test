@@ -1,5 +1,6 @@
 package com.moxa.dream.example.driver.test;
 
+import com.moxa.dream.driver.page.Page;
 import com.moxa.dream.driver.session.SqlSession;
 import com.moxa.dream.driver.session.SqlSessionFactory;
 import com.moxa.dream.driver.session.SqlSessionFactoryBuilder;
@@ -178,6 +179,19 @@ public class QueryTest {
                 UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
                 MyViewUser myViewUser = userMapper.selectUserWithDeptById(1);
                 value=myViewUser;
+            }
+        }
+        System.out.println((System.currentTimeMillis() - l));
+    }
+    @Test
+    public void userMapper$selectPageUserList() {
+        long l = System.currentTimeMillis();
+        Object value = null;
+        for (int i = 0; i < count; i++) {
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+                Page<MyViewUser> page = userMapper.selectPageUserList(Page.of(1, 1));
+                value=page;
             }
         }
         System.out.println((System.currentTimeMillis() - l));

@@ -1,5 +1,7 @@
 package com.moxa.dream.example.driver.mapper;
 
+import com.moxa.dream.driver.page.Page;
+import com.moxa.dream.driver.page.annotation.PageQuery;
 import com.moxa.dream.example.driver.view.MyViewUser;
 import com.moxa.dream.module.annotation.Mapper;
 import com.moxa.dream.module.annotation.Sql;
@@ -12,5 +14,8 @@ public interface UserMapper {
     MyViewUser selectUserWithDeptById(int id);
     @Sql("select id,name,create_time from user")
     List<MyViewUser> selectUserList();
+    @PageQuery("")
+    @Sql("select id,name,create_time from user")
+    Page<MyViewUser> selectPageUserList(Page page);
 
 }

@@ -13,6 +13,9 @@
     </tableFactory>
     <typeHandlerFactory type="com.moxa.dream.module.typehandler.factory.DefaultTypeHandlerFactory">
     </typeHandlerFactory>
+    <pluginFactory type="com.moxa.dream.module.plugin.factory.JavaPluginFactory">
+        <interceptor type="com.moxa.dream.driver.page.interceptor.PageInterceptor"/>
+    </pluginFactory>
     <dialectFactory type="com.moxa.dream.driver.factory.DefaultDialectFactory" dialect="${mysql}">
     </dialectFactory>
     <transactionFactory type="com.moxa.dream.module.transaction.factory.JdbcTransactionFactory">
