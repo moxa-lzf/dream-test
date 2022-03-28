@@ -11,9 +11,12 @@ import java.util.List;
 @Mapper("mapper.xml")
 public interface UserMapper {
     MyViewUser selectUserById(int id);
+
     MyViewUser selectUserWithDeptById(int id);
+
     @Sql("select id,name,create_time from user")
     List<MyViewUser> selectUserList();
+
     @PageQuery("")
     @Sql("select id,name,create_time from user")
     Page<MyViewUser> selectPageUserList(Page page);

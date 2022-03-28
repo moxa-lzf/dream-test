@@ -62,11 +62,9 @@ public class QueryTest {
     public void testSelectPage(){
         long l = System.currentTimeMillis();
         City city=new City();
-//        city.setState("CA");
         for (int i = 0; i < count; i++) {
             Page page=Page.of(1,10);
             Page<City> cities = sessionMapper.selectPage(City.class, city, page);
-            System.out.println(cities);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
