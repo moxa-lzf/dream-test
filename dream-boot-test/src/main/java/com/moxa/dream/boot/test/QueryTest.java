@@ -5,6 +5,7 @@ import com.moxa.dream.boot.service.CityService;
 import com.moxa.dream.boot.template.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
 import com.moxa.dream.driver.page.Page;
+import com.moxa.dream.module.core.resultsethandler.DefaultResultSetHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class QueryTest {
 
     @Test
     public void test() {
+        DefaultResultSetHandler defaultResultSetHandler;
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
             City city = cityService.findByState("CA");
@@ -60,10 +62,12 @@ public class QueryTest {
     }
     @Test
     public void testSelectPage(){
-        long l = System.currentTimeMillis();
         City city=new City();
+        Page page=Page.of(1,10);
+        sessionMapper.selectPage(City.class,city,page);
+        long l = System.currentTimeMillis();
+
         for (int i = 0; i < count; i++) {
-            Page page=Page.of(1,10);
             Page<City> cities = sessionMapper.selectPage(City.class, city, page);
         }
         System.out.println(System.currentTimeMillis() - l);

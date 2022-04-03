@@ -19,9 +19,10 @@ import com.moxa.dream.boot.template.annotation.Equal;
 import com.moxa.dream.module.annotation.Column;
 import com.moxa.dream.module.annotation.Id;
 import com.moxa.dream.module.annotation.Table;
+import com.moxa.dream.module.annotation.View;
 
 import java.io.Serializable;
-
+@View("city")
 @Table
 public class City implements Serializable {
     @Id
@@ -33,7 +34,7 @@ public class City implements Serializable {
     @Equal("state")
     @Column
     private String state;
-    @Column
+//    @Column
     private String country;
 
     public int getId() {

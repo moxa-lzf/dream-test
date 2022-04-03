@@ -29,4 +29,6 @@ public interface CityMapper {
   City findByState(String state);
   @Sql("update city set name=null where state = @$(state)")
   void updateCity(String state);
+  @Sql("update city set name=@$(name),state=@$(state) where id=@$(id)")
+  Integer update(City city);
 }

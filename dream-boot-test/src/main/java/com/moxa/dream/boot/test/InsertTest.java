@@ -27,9 +27,9 @@ public class InsertTest {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
             City city=new City();
-            city.setId(i+10);
+//            city.setId(i+10);
             city.setName("name"+i);
-            city.setCountry("country"+i);
+//            city.setCountry("country"+i);
             city.setState("state"+i);
             sessionMapper.insert(city);
         }

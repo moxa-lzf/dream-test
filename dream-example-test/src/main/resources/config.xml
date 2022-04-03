@@ -17,7 +17,7 @@
         <interceptor type="com.moxa.dream.driver.page.interceptor.PageInterceptor"/>
     </pluginFactory>
     <listenerFactory>
-        <listener type="com.moxa.dream.example.driver.MyListener"/>
+<!--        <listener type="com.moxa.dream.driver.listener.DebugListener"/>-->
     </listenerFactory>
     <dialectFactory dialect="${mysql}">
     </dialectFactory>
