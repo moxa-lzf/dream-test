@@ -25,7 +25,6 @@ public class QueryTest {
 
     @Test
     public void test() {
-        DefaultResultSetHandler defaultResultSetHandler;
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
             City city = cityService.findByState("CA");
