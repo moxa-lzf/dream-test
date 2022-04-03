@@ -24,7 +24,7 @@ import com.moxa.dream.module.annotation.View;
 import java.io.Serializable;
 @View("city")
 @Table
-public class City implements Serializable {
+public class City {
     @Id
     @Column
     @Equal("id")
@@ -37,7 +37,7 @@ public class City implements Serializable {
 //    @Column
     private String country;
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
 
@@ -68,10 +68,4 @@ public class City implements Serializable {
     public void setCountry(String country) {
         this.country = country;
     }
-
-    @Override
-    public String toString() {
-        return getId() + "," + getName() + "," + getState() + "," + getCountry();
-    }
-
 }

@@ -29,7 +29,7 @@ public class InsertTest {
             City city=new City();
 //            city.setId(i+10);
             city.setName("name"+i);
-//            city.setCountry("country"+i);
+            city.setCountry("country"+i);
             city.setState("state"+i);
             sessionMapper.insert(city);
         }
@@ -42,7 +42,7 @@ public class InsertTest {
             List<City> cityList=new ArrayList<>();
             for(int k=0;k<100;k++) {
                 City city = new City();
-                city.setId(i*100 +k+ 10);
+//                city.setId(i*100 +k+ 10);
                 city.setName("name" + i);
                 city.setCountry("country" + i);
                 city.setState("state" + i);
@@ -59,7 +59,7 @@ public class InsertTest {
             List<City> cityList=new ArrayList<>();
             for(int k=0;k<100;k++) {
                 City city = new City();
-                city.setId(i*100 +k+ 10);
+//                city.setId(i*100 +k+ 10);
                 city.setName("name" + i);
                 city.setCountry("country" + i);
                 city.setState("state" + i);
