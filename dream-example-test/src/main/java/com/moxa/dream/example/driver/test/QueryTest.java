@@ -18,6 +18,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 public class QueryTest {
     static SqlSessionFactory sqlSessionFactory;
@@ -110,7 +111,7 @@ public class QueryTest {
                 .rowType(List.class)
                 .build();
         Object value = null;
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count/count; i++) {
             try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
                 value = sqlSession.execute(methodInfo, null);
             }
@@ -124,6 +125,22 @@ public class QueryTest {
                 .Builder(sqlSessionFactory.getConfiguration())
                 .sql("select * from user where id=@$(id) ")
                 .colType(MyView.class)
+                .build();
+        Object value = null;
+        for (int i = 0; i < count; i++) {
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                value = sqlSession.execute(methodInfo, 1);
+            }
+        }
+        System.out.println((System.currentTimeMillis() - l) + "\t\t" + value);
+    }
+    @Test
+    public void selectTable() {
+        long l = System.currentTimeMillis();
+        MethodInfo methodInfo = new MethodInfo
+                .Builder(sqlSessionFactory.getConfiguration())
+                .sql("select @all(user,dept) from @table(user,dept,user_dept) ")
+                .colType(Map.class)
                 .build();
         Object value = null;
         for (int i = 0; i < count; i++) {
