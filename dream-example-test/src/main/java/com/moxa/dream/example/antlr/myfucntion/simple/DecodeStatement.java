@@ -2,8 +2,8 @@ package com.moxa.dream.example.antlr.myfucntion.simple;
 
 import com.moxa.dream.antlr.exception.InvokerException;
 import com.moxa.dream.antlr.invoker.Invoker;
-import com.moxa.dream.antlr.smt.CustomFunctionStatement;
 import com.moxa.dream.antlr.smt.ListColumnStatement;
+import com.moxa.dream.antlr.smt.MyFunctionStatement;
 import com.moxa.dream.antlr.smt.Statement;
 import com.moxa.dream.antlr.sql.ToAssist;
 import com.moxa.dream.antlr.sql.ToSQL;
@@ -11,7 +11,7 @@ import com.moxa.dream.antlr.sql.ToSQL;
 import java.util.List;
 
 //手动创建Statement，手动实现翻译
-public class DecodeStatement extends CustomFunctionStatement {
+public class DecodeStatement extends MyFunctionStatement {
     @Override
     public String toString(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
         switch (toSQL.getName()) {

@@ -6,7 +6,7 @@ import com.moxa.dream.antlr.exception.InvokerException;
 import com.moxa.dream.antlr.expr.ListColumnExpr;
 import com.moxa.dream.antlr.invoker.Invoker;
 import com.moxa.dream.antlr.read.ExprReader;
-import com.moxa.dream.antlr.smt.CustomFunctionStatement;
+import com.moxa.dream.antlr.smt.MyFunctionStatement;
 import com.moxa.dream.antlr.smt.Statement;
 import com.moxa.dream.antlr.sql.ToAssist;
 import com.moxa.dream.antlr.sql.ToSQL;
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 列如需要解析extract(year from a)这种格式，默认参数解析无法解析，必须手动实现解析器，覆写getListExpr
  */
-public class ExtractStatement extends CustomFunctionStatement {
+public class ExtractStatement extends MyFunctionStatement {
     private Statement selfStatement;
     private EXTRACT_TYPE extract_type;
 

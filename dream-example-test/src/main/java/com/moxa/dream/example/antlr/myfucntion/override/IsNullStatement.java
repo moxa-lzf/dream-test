@@ -2,13 +2,13 @@ package com.moxa.dream.example.antlr.myfucntion.override;
 
 import com.moxa.dream.antlr.exception.InvokerException;
 import com.moxa.dream.antlr.invoker.Invoker;
-import com.moxa.dream.antlr.smt.CustomFunctionStatement;
+import com.moxa.dream.antlr.smt.MyFunctionStatement;
 import com.moxa.dream.antlr.sql.ToAssist;
 import com.moxa.dream.antlr.sql.ToSQL;
 
 import java.util.List;
 
-public class IsNullStatement extends CustomFunctionStatement {
+public class IsNullStatement extends MyFunctionStatement {
     @Override
     public String toString(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
         switch (toSQL.getName()) {

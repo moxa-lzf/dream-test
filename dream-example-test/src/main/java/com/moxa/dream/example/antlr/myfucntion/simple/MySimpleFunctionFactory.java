@@ -1,7 +1,7 @@
 package com.moxa.dream.example.antlr.myfucntion.simple;
 
 import com.moxa.dream.antlr.factory.MyFunctionFactory;
-import com.moxa.dream.antlr.smt.CustomFunctionStatement;
+import com.moxa.dream.antlr.smt.MyFunctionStatement;
 
 /**
  * 翻译框架不可能把每一个函数都支持，因此为了满足开发者需求，必须提供可翻译未知函数的方案，提供了一个接口，完成自定义函数
@@ -10,7 +10,7 @@ import com.moxa.dream.antlr.smt.CustomFunctionStatement;
  */
 public class MySimpleFunctionFactory implements MyFunctionFactory {
     @Override
-    public CustomFunctionStatement create(String function) {
+    public MyFunctionStatement create(String function) {
         //假定使用decode函数，但未在基础函数中实现，却又想使用
         switch (function.toUpperCase()) {
             case "DECODE":

@@ -8,7 +8,7 @@ import com.moxa.dream.antlr.smt.PackageStatement;
 import com.moxa.dream.antlr.sql.ToDREAM;
 import com.moxa.dream.antlr.sql.ToMYSQL;
 import com.moxa.dream.example.antlr.AbstractSqlTest;
-import com.moxa.dream.util.wrapper.ObjectWrapper;
+import com.moxa.dream.util.common.ObjectWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
