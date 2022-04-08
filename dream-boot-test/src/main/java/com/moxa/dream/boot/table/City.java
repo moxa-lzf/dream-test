@@ -16,6 +16,7 @@
 package com.moxa.dream.boot.table;
 
 import com.moxa.dream.boot.template.annotation.Equal;
+import com.moxa.dream.boot.template.annotation.LeftLike;
 import com.moxa.dream.module.annotation.Column;
 import com.moxa.dream.module.annotation.Id;
 import com.moxa.dream.module.annotation.Table;
@@ -30,6 +31,7 @@ public class City {
     @Equal("id")
     private Integer id;
     @Column
+    @LeftLike("name")
     private String name;
     @Equal("state")
     @Column

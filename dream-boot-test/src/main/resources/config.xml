@@ -2,4 +2,7 @@
     <cacheFactory>
         <property name="enabled" value="false"/>
     </cacheFactory>
+    <listenerFactory>
+<!--        <listener type="com.moxa.dream.driver.listener.DebugListener"/>-->
+    </listenerFactory>
 </configuration>

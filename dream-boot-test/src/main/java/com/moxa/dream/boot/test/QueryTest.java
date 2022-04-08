@@ -1,6 +1,7 @@
 package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
+import com.moxa.dream.boot.autoconfigure.DreamAutoConfiguration;
 import com.moxa.dream.boot.service.CityService;
 import com.moxa.dream.boot.template.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
@@ -60,14 +61,47 @@ public class QueryTest {
         System.out.println(System.currentTimeMillis() - l);
     }
     @Test
+    public void testSelectNonList(){
+        long l = System.currentTimeMillis();
+        City city=new City();
+//        city.setId(1);
+//        city.setState("CA");
+        city.setName("AA");
+        for (int i = 0; i < count; i++) {
+            List<City> cities = sessionMapper.selectNonList(City.class, city);
+        }
+        System.out.println(System.currentTimeMillis() - l);
+    }
+    @Test
     public void testSelectPage(){
         City city=new City();
         Page page=Page.of(1,10);
-        sessionMapper.selectPage(City.class,city,page);
         long l = System.currentTimeMillis();
 
         for (int i = 0; i < count; i++) {
             Page<City> cities = sessionMapper.selectPage(City.class, city, page);
+        }
+        System.out.println(System.currentTimeMillis() - l);
+    }
+    @Test
+    public void testSelectNonPage(){
+        City city=new City();
+        Page page=Page.of(1,10);
+        city.setState("CA");
+        city.setName("oo");
+        long l = System.currentTimeMillis();
+
+        for (int i = 0; i < count; i++) {
+            Page<City> cities = sessionMapper.selectNonPage(City.class, city, page);
+        }
+        System.out.println(System.currentTimeMillis() - l);
+    }
+    @Test
+    public void existById(){
+        long l = System.currentTimeMillis();
+
+        for (int i = 0; i < count; i++) {
+            boolean b = sessionMapper.existById(City.class, 12);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
