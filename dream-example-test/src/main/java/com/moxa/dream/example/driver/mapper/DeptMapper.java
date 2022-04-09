@@ -1,8 +1,8 @@
 package com.moxa.dream.example.driver.mapper;
 
 import com.moxa.dream.example.driver.view.ViewDept;
-import com.moxa.dream.module.annotation.Mapper;
-import com.moxa.dream.module.annotation.Sql;
+import com.moxa.dream.system.annotation.Mapper;
+import com.moxa.dream.system.annotation.Sql;
 
 import java.util.List;
 

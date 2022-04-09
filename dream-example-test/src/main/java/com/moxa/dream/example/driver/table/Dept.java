@@ -1,8 +1,8 @@
 package com.moxa.dream.example.driver.table;
 
 
-import com.moxa.dream.module.annotation.Column;
-import com.moxa.dream.module.annotation.Table;
+import com.moxa.dream.system.annotation.Column;
+import com.moxa.dream.system.annotation.Table;
 
 @Table
 public class Dept {

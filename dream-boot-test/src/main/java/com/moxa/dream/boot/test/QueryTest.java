@@ -6,7 +6,7 @@ import com.moxa.dream.boot.service.CityService;
 import com.moxa.dream.boot.template.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
 import com.moxa.dream.driver.page.Page;
-import com.moxa.dream.module.core.resultsethandler.DefaultResultSetHandler;
+import com.moxa.dream.system.core.resultsethandler.DefaultResultSetHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.moxa.dream.example.driver.view;
 
-import com.moxa.dream.module.annotation.View;
+import com.moxa.dream.system.annotation.View;
 
 import java.sql.Timestamp;
 import java.util.List;

@@ -1,10 +1,10 @@
 package com.moxa.dream.example.driver;
 
-import com.moxa.dream.module.core.listener.DeleteListener;
-import com.moxa.dream.module.core.listener.InsertListener;
-import com.moxa.dream.module.core.listener.QueryListener;
-import com.moxa.dream.module.core.listener.UpdateListener;
-import com.moxa.dream.module.mapped.MappedStatement;
+import com.moxa.dream.system.core.listener.DeleteListener;
+import com.moxa.dream.system.core.listener.InsertListener;
+import com.moxa.dream.system.core.listener.QueryListener;
+import com.moxa.dream.system.core.listener.UpdateListener;
+import com.moxa.dream.system.mapped.MappedStatement;
 
 public class MyListener implements QueryListener, InsertListener, UpdateListener, DeleteListener {
     @Override

@@ -5,7 +5,7 @@ import com.moxa.dream.boot.spring.annotation.SessionControl;
 import com.moxa.dream.boot.table.City;
 import com.moxa.dream.boot.template.mapper.SessionMapper;
 import com.moxa.dream.driver.page.annotation.PageQuery;
-import com.moxa.dream.module.annotation.Sql;
+import com.moxa.dream.system.annotation.Sql;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

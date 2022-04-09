@@ -18,8 +18,8 @@ package com.moxa.dream.boot.mapper;
 import com.moxa.dream.boot.spring.annotation.SessionControl;
 import com.moxa.dream.boot.table.City;
 import com.moxa.dream.driver.page.annotation.PageQuery;
-import com.moxa.dream.module.annotation.Mapper;
-import com.moxa.dream.module.annotation.Sql;
+import com.moxa.dream.system.annotation.Mapper;
+import com.moxa.dream.system.annotation.Sql;
 
 @Mapper
 public interface CityMapper {

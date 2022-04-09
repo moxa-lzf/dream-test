@@ -11,7 +11,7 @@ import com.moxa.dream.example.driver.view.MyView;
 import com.moxa.dream.example.driver.view.MyViewUser;
 import com.moxa.dream.example.driver.view.ViewDept;
 import com.moxa.dream.example.driver.view.ViewUser;
-import com.moxa.dream.module.mapper.MethodInfo;
+import com.moxa.dream.system.mapper.MethodInfo;
 import com.moxa.dream.util.reflection.util.NonCollection;
 import com.moxa.dream.util.resource.ResourceUtil;
 import org.junit.jupiter.api.BeforeAll;

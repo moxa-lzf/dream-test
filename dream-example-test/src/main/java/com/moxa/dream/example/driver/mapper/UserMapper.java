@@ -3,8 +3,8 @@ package com.moxa.dream.example.driver.mapper;
 import com.moxa.dream.driver.page.Page;
 import com.moxa.dream.driver.page.annotation.PageQuery;
 import com.moxa.dream.example.driver.view.MyViewUser;
-import com.moxa.dream.module.annotation.Mapper;
-import com.moxa.dream.module.annotation.Sql;
+import com.moxa.dream.system.annotation.Mapper;
+import com.moxa.dream.system.annotation.Sql;
 
 import java.util.List;
 

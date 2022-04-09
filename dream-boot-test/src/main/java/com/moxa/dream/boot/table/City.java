@@ -17,10 +17,10 @@ package com.moxa.dream.boot.table;
 
 import com.moxa.dream.boot.template.annotation.Equal;
 import com.moxa.dream.boot.template.annotation.LeftLike;
-import com.moxa.dream.module.annotation.Column;
-import com.moxa.dream.module.annotation.Id;
-import com.moxa.dream.module.annotation.Table;
-import com.moxa.dream.module.annotation.View;
+import com.moxa.dream.system.annotation.Column;
+import com.moxa.dream.system.annotation.Id;
+import com.moxa.dream.system.annotation.Table;
+import com.moxa.dream.system.annotation.View;
 
 import java.io.Serializable;
 @View("city")
@@ -31,9 +31,9 @@ public class City {
     @Equal("id")
     private Integer id;
     @Column
-    @LeftLike("name")
+//    @LeftLike("name")
     private String name;
-    @Equal("state")
+//    @Equal("state")
     @Column
     private String state;
 //    @Column
