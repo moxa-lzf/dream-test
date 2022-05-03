@@ -2,14 +2,13 @@ package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.service.CityService;
-import com.moxa.dream.boot.template.mapper.SessionMapper;
 import com.moxa.dream.boot.table.City;
+import com.moxa.dream.boot.template.mapper.SessionMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;

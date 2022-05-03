@@ -2,6 +2,7 @@
     <cacheFactory>
         <property name="enabled" value="false"/>
     </cacheFactory>
+    <dialectFactory dialect="${mysql}"></dialectFactory>
     <listenerFactory>
 <!--        <listener type="com.moxa.dream.driver.listener.DebugListener"/>-->
     </listenerFactory>
