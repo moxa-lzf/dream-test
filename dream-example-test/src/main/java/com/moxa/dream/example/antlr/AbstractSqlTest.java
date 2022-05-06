@@ -30,7 +30,7 @@ public abstract class AbstractSqlTest {
         System.out.println();
         for (ToSQL toSQL : toSQLList) {
             try {
-                System.out.println(toSQL.getName() + "->" + toSQL.toResult(createStatement(sql, myFunctionFactory), invokerFactoryList, null).getSql());
+                System.out.println(toSQL.getName() + "->" + toSQL.toStr(createStatement(sql, myFunctionFactory), null, null));
             } catch (InvokerException e) {
                 throw new RuntimeException(e);
             }

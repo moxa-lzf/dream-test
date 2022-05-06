@@ -81,8 +81,8 @@ public class ExtractExpr extends HelperExpr {
     //规约
     @Override
     protected Statement nil() {
-        //这里返回null也是可以
-        return extractStatement;
+//        return extractStatement;
+        return null;
     }
 
     @Override

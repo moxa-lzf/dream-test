@@ -33,7 +33,8 @@ public class MyDataSourceFactory implements DataSourceFactory {
 
     void runScript() throws SQLException, IOException {
         InputStream resourceAsStream = ResourceUtil.getResourceAsStream("sample.sql");
-        byte[] bytes = resourceAsStream.readAllBytes();
+        byte[] bytes=new byte[resourceAsStream.available()];
+        resourceAsStream.read(bytes);
         String[] sqlList = new String(bytes).split(";");
         Connection connection = dataSource.getConnection();
         Statement statement = connection.createStatement();
