@@ -16,6 +16,7 @@ public class SimpleSqlTest extends AbstractSqlTest {
         simpleSqlTest.testSelectDot();
         simpleSqlTest.testSelectFunction();
         simpleSqlTest.testInsert();
+        simpleSqlTest.testInsertAll();
     }
 
 
@@ -78,6 +79,11 @@ public class SimpleSqlTest extends AbstractSqlTest {
     }
 
     public void testInsert() {
+        testSqlForMany("insert into dual(id,name)values(id,name)", null, null);
+    }
+
+
+    public void testInsertAll() {
         testSqlForMany("insert into dual(id,name)values(id,name),(?,?)", null, null);
     }
 }

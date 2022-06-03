@@ -3,6 +3,7 @@ package com.moxa.dream.boot;
 import com.moxa.dream.antlr.sql.ToMYSQL;
 import com.moxa.dream.boot.autoconfigure.SqlSessionFactoryBean;
 import com.moxa.dream.driver.config.DefaultConfig;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +20,7 @@ public class BootApplication {
 
     //    @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) {
+        FactoryBean factoryBean;
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean(null, ToMYSQL.class.getName(), null, null);
         DefaultConfig defaultConfig = sqlSessionFactoryBean.getDefaultConfig();
         defaultConfig.setTablePackages(Arrays.asList("com.moxa.dream.boot"));
