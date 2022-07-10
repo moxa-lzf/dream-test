@@ -2,7 +2,7 @@ package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.service.CityService;
-import com.moxa.dream.boot.template.mapper.SessionMapper;
+import com.moxa.dream.boot.template.mapper.TemplateMapper;
 import com.moxa.dream.boot.table.City;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ public class UpdateTest {
     @Autowired
     private CityService cityService;
     @Autowired
-    private SessionMapper sessionMapper;
+    private TemplateMapper templateMapper;
     static int count = 1000000;
 
     @Test
@@ -29,7 +29,7 @@ public class UpdateTest {
         city.setCountry("country");
         for (int i = 0; i < count; i++) {
 //            cityService.update(city);
-            sessionMapper.updateById(city);
+            templateMapper.updateById(city);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
@@ -40,7 +40,7 @@ public class UpdateTest {
             City city=new City();
             city.setId(1);
             city.setCountry("country"+i);
-            sessionMapper.updateNonById(city);
+            templateMapper.updateNonById(city);
         }
         System.out.println(System.currentTimeMillis() - l);
     }

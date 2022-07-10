@@ -2,7 +2,7 @@ package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.table.City;
-import com.moxa.dream.boot.template.mapper.SessionMapper;
+import com.moxa.dream.boot.template.mapper.TemplateMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +15,14 @@ import java.util.Arrays;
 @SpringBootTest(classes = BootApplication.class)
 public class DeleteTest {
     @Autowired
-    private SessionMapper sessionMapper;
+    private TemplateMapper templateMapper;
     static int count = 1000000;
 
     @Test
     public void deleteById() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            sessionMapper.deleteById(City.class,1);
+            templateMapper.deleteById(City.class,1);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
@@ -30,7 +30,7 @@ public class DeleteTest {
     public void deleteByIds() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            sessionMapper.deleteByIds(City.class, Arrays.asList(1, 2, 3));
+            templateMapper.deleteByIds(City.class, Arrays.asList(1, 2, 3));
         }
         System.out.println(System.currentTimeMillis() - l);
     }

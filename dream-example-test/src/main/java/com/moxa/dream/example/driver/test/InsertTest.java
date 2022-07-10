@@ -34,7 +34,6 @@ public class InsertTest {
                 .sql("insert into user(name)values(@$(name))")
                 .colType(Object.class)
                 .rowType(NonCollection.class)
-                .generatedKeys(true)
                 .build();
         User user=new User();
         Object value;

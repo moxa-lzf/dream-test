@@ -3,7 +3,7 @@ package com.moxa.dream.boot.test;
 import com.moxa.dream.boot.BootApplication;
 import com.moxa.dream.boot.service.CityService;
 import com.moxa.dream.boot.table.City;
-import com.moxa.dream.boot.template.mapper.SessionMapper;
+import com.moxa.dream.boot.template.mapper.TemplateMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.List;
 @SpringBootTest(classes = BootApplication.class)
 public class InsertTest {
     @Autowired
-    private SessionMapper sessionMapper;
+    private TemplateMapper templateMapper;
     static int count = 1000000;
     @Autowired
     private CityService cityService;
@@ -30,7 +30,7 @@ public class InsertTest {
             city.setName("name"+i);
             city.setCountry("country"+i);
             city.setState("state"+i);
-            sessionMapper.insert(city);
+            templateMapper.insert(city);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
@@ -64,7 +64,7 @@ public class InsertTest {
                 city.setState("state" + i);
                 cityList.add(city);
             }
-            sessionMapper.insertMany(cityList);
+            templateMapper.insertMany(cityList);
         }
         System.out.println(System.currentTimeMillis() - l);
     }

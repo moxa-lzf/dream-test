@@ -206,7 +206,7 @@ public class QueryTest {
         for (int i = 0; i < count; i++) {
             try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
                 UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-                Page<MyViewUser> page = userMapper.selectPageUserList(Page.of(1, 1));
+                List<MyViewUser> page = userMapper.selectPageUserList(new Page(1, 1));
                 value=page;
             }
         }

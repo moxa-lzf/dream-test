@@ -3,6 +3,12 @@
         <property name="enabled" value="false"/>
     </cacheFactory>
     <dialectFactory dialect="${mysql}"></dialectFactory>
+    <tableFactory>
+        <mapping package="com.moxa.dream.boot"/>
+    </tableFactory>
+    <mapperFactory>
+        <mapping package="com.moxa.dream.boot"/>
+    </mapperFactory>
     <listenerFactory>
 <!--        <listener type="com.moxa.dream.driver.listener.DebugListener"/>-->
     </listenerFactory>

@@ -1,7 +1,6 @@
 
 package com.moxa.dream.boot.table;
 
-import com.moxa.dream.boot.template.annotation.Equal;
 import com.moxa.dream.system.annotation.Column;
 import com.moxa.dream.system.annotation.Id;
 import com.moxa.dream.system.annotation.Table;
@@ -11,7 +10,6 @@ import com.moxa.dream.system.annotation.View;
 public class City {
     @Id
     @Column
-    @Equal("id")
     private Integer id;
     @Column
 //    @LeftLike("name")
@@ -19,7 +17,7 @@ public class City {
 //    @Equal("state")
     @Column
     private String state;
-//    @Column
+    @Column
     private String country;
 
     public Integer getId() {

@@ -19,6 +19,6 @@ public interface UserMapper {
 
     @PageQuery("")
     @Sql("select id,name,create_time from user")
-    Page<MyViewUser> selectPageUserList(Page page);
+    List<MyViewUser> selectPageUserList(Page page);
 
 }

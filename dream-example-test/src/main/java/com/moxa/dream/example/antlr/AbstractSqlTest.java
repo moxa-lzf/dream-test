@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class AbstractSqlTest {
-    static List<ToSQL> toSQLList = Arrays.asList(new ToDREAM(), new ToMYSQL(), new ToPGSQL(), new ToMSSQL(), new ToORACLE());
+    static List<ToSQL> toSQLList = Arrays.asList(new ToMYSQL(), new ToPGSQL(), new ToMSSQL(), new ToORACLE());
     private List<InvokerFactory> invokerFactoryList = new ArrayList<>();
 
     public AbstractSqlTest() {
