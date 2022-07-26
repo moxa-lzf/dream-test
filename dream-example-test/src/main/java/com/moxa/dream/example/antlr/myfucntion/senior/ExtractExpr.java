@@ -1,7 +1,7 @@
 package com.moxa.dream.example.antlr.myfucntion.senior;
 
-import com.moxa.dream.antlr.bind.ExprInfo;
-import com.moxa.dream.antlr.bind.ExprType;
+import com.moxa.dream.antlr.config.ExprInfo;
+import com.moxa.dream.antlr.config.ExprType;
 import com.moxa.dream.antlr.expr.ColumnExpr;
 import com.moxa.dream.antlr.expr.HelperExpr;
 import com.moxa.dream.antlr.read.ExprReader;

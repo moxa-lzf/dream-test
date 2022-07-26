@@ -1,14 +1,15 @@
 package com.moxa.dream.example.antlr.myfucntion.senior;
 
-import com.moxa.dream.antlr.bind.ExprInfo;
-import com.moxa.dream.antlr.bind.ExprType;
+import com.moxa.dream.antlr.config.Assist;
+import com.moxa.dream.antlr.config.ExprInfo;
+import com.moxa.dream.antlr.config.ExprType;
 import com.moxa.dream.antlr.exception.InvokerException;
+import com.moxa.dream.antlr.expr.HelperExpr;
 import com.moxa.dream.antlr.expr.ListColumnExpr;
 import com.moxa.dream.antlr.invoker.Invoker;
 import com.moxa.dream.antlr.read.ExprReader;
 import com.moxa.dream.antlr.smt.MyFunctionStatement;
 import com.moxa.dream.antlr.smt.Statement;
-import com.moxa.dream.antlr.sql.ToAssist;
 import com.moxa.dream.antlr.sql.ToSQL;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class ExtractStatement extends MyFunctionStatement {
     }
 
     @Override
-    public String toString(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    public String toString(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         switch (toSQL.getName()) {
             case "oracle":
                 return toORACLE(toSQL, assist, invokerList);
@@ -44,7 +45,7 @@ public class ExtractStatement extends MyFunctionStatement {
         }
     }
 
-    public String toORACLE(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    public String toORACLE(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         switch (extract_type) {
             case YEAR:
                 return "EXTRACT(YEAR FROM " + toSQL.toStr(selfStatement, assist, invokerList) + ")";
@@ -53,7 +54,7 @@ public class ExtractStatement extends MyFunctionStatement {
         }
     }
 
-    public String toMSSQL(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    public String toMSSQL(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         switch (extract_type) {
             case YEAR:
                 return "YEAR(" + toSQL.toStr(selfStatement, assist, invokerList) + ")";
@@ -62,7 +63,7 @@ public class ExtractStatement extends MyFunctionStatement {
         }
     }
 
-    public String toMYSQL(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    public String toMYSQL(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         switch (extract_type) {
             case YEAR:
                 return "YEAR(" + toSQL.toStr(selfStatement, assist, invokerList) + ")";
@@ -71,7 +72,7 @@ public class ExtractStatement extends MyFunctionStatement {
         }
     }
 
-    public String toPGSQL(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    public String toPGSQL(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         switch (extract_type) {
             case YEAR:
                 return "YEAR(" + toSQL.toStr(selfStatement, assist, invokerList) + ")";
@@ -79,11 +80,10 @@ public class ExtractStatement extends MyFunctionStatement {
                 throw new RuntimeException("error");
         }
     }
-
 
     @Override
-    public ListColumnExpr getListExpr(ExprReader exprReader) {
-        return new ListColumnExpr(exprReader, () -> new ExtractExpr(exprReader, this), new ExprInfo(ExprType.COMMA, ","));
+    public HelperExpr.Helper getHelper(ExprReader exprReader) {
+        return () -> new ListColumnExpr(exprReader, () -> new ExtractExpr(exprReader, this), new ExprInfo(ExprType.COMMA, ","));
     }
 
     enum EXTRACT_TYPE {

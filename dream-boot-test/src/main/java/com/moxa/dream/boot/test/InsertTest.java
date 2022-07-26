@@ -1,8 +1,9 @@
 package com.moxa.dream.boot.test;
 
 import com.moxa.dream.boot.BootApplication;
-import com.moxa.dream.boot.service.CityService;
-import com.moxa.dream.boot.table.City;
+import com.moxa.dream.boot.mapper.UserMapper;
+import com.moxa.dream.boot.service.UserService;
+import com.moxa.dream.boot.table.User;
 import com.moxa.dream.boot.template.mapper.TemplateMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,17 +21,19 @@ public class InsertTest {
     private TemplateMapper templateMapper;
     static int count = 1000000;
     @Autowired
-    private CityService cityService;
+    private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
     @Test
     public void testInsert() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            City city=new City();
-//            city.setId(i+10);
-            city.setName("name"+i);
-            city.setCountry("country"+i);
-            city.setState("state"+i);
-            templateMapper.insert(city);
+            User user =new User();
+            user.setId(i+10);
+            user.setName("name"+i);
+            user.setAge(i);
+            user.setEmail("email"+i);
+            templateMapper.insert(user);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
@@ -38,16 +41,16 @@ public class InsertTest {
     public void testInsertBatch() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count/100; i++) {
-            List<City> cityList=new ArrayList<>();
+            List<User> userList =new ArrayList<>();
             for(int k=0;k<100;k++) {
-                City city = new City();
-//                city.setId(i*100 +k+ 10);
-                city.setName("name" + i);
-                city.setCountry("country" + i);
-                city.setState("state" + i);
-                cityList.add(city);
+                User user = new User();
+                user.setId(i*100 +k+ 10);
+                user.setName("name" + i);
+                user.setAge(i);
+                user.setEmail("email" + i);
+                userList.add(user);
             }
-            cityService.insertBatch(cityList);
+            userService.insertBatch(userList);
         }
         System.out.println(System.currentTimeMillis() - l);
     }
@@ -55,16 +58,33 @@ public class InsertTest {
     public void testInsertMany() {
         long l = System.currentTimeMillis();
         for (int i = 0; i < count/100; i++) {
-            List<City> cityList=new ArrayList<>();
+            List<User> userList =new ArrayList<>();
             for(int k=0;k<100;k++) {
-                City city = new City();
-//                city.setId(i*100 +k+ 10);
-                city.setName("name" + i);
-                city.setCountry("country" + i);
-                city.setState("state" + i);
-                cityList.add(city);
+                User user = new User();
+                user.setId(i*100 +k+ 10);
+                user.setName("name" + i);
+                user.setAge( i);
+                user.setEmail("email" + i);
+                userList.add(user);
             }
-            templateMapper.insertMany(cityList);
+            templateMapper.insertMany(userList);
+        }
+        System.out.println(System.currentTimeMillis() - l);
+    }
+    @Test
+    public void testInsertMany2() {
+        long l = System.currentTimeMillis();
+        for (int i = 0; i < count/100; i++) {
+            List<User> userList =new ArrayList<>();
+            for(int k=0;k<100;k++) {
+                User user = new User();
+                user.setId(i*100 +k+ 10);
+                user.setName("name" + i);
+                user.setAge( i);
+                user.setEmail("email" + i);
+                userList.add(user);
+            }
+            userService.insertBatch2(userList);
         }
         System.out.println(System.currentTimeMillis() - l);
     }

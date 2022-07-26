@@ -1,11 +1,11 @@
 package com.moxa.dream.example.antlr.myfucntion.simple;
 
+import com.moxa.dream.antlr.config.Assist;
 import com.moxa.dream.antlr.exception.InvokerException;
 import com.moxa.dream.antlr.invoker.Invoker;
 import com.moxa.dream.antlr.smt.ListColumnStatement;
 import com.moxa.dream.antlr.smt.MyFunctionStatement;
 import com.moxa.dream.antlr.smt.Statement;
-import com.moxa.dream.antlr.sql.ToAssist;
 import com.moxa.dream.antlr.sql.ToSQL;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 //手动创建Statement，手动实现翻译
 public class DecodeStatement extends MyFunctionStatement {
     @Override
-    public String toString(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    public String toString(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         switch (toSQL.getName()) {
             case "oracle":
                 //oracle翻译
@@ -24,7 +24,7 @@ public class DecodeStatement extends MyFunctionStatement {
         }
     }
 
-    protected String toORACLE(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    protected String toORACLE(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         //参数不需要改变，因此提供函数名，直接翻译
         return "DECODE(" + toSQL.toStr(paramsStatement, assist, invokerList) + ")";
     }
@@ -38,7 +38,7 @@ public class DecodeStatement extends MyFunctionStatement {
      * @return
      * @throws InvokerException
      */
-    protected String toOther(ToSQL toSQL, ToAssist assist, List<Invoker> invokerList) throws InvokerException {
+    protected String toOther(ToSQL toSQL, Assist assist, List<Invoker> invokerList) throws InvokerException {
         //获取decode参数列表
         Statement[] columnList = ((ListColumnStatement) paramsStatement).getColumnList();
         //翻译第一个参数，拿到第一个条件字符串

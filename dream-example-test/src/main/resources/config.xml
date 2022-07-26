@@ -1,7 +1,4 @@
-<configuration xmlns="http://moxa.org/schema/config">
-    <aliasFactory>
-        <property name="ds" value="com.moxa.dream.example.driver.MyDataSourceFactory"/>
-    </aliasFactory>
+<configuration xmlns="http://moxa.com/schema/config">
     <cacheFactory>
                 <property name="enabled" value="false"/>
     </cacheFactory>
@@ -11,18 +8,9 @@
     <tableFactory>
         <mapping package="com.moxa.dream.example.driver.table"/>
     </tableFactory>
-    <typeHandlerFactory>
-    </typeHandlerFactory>
     <pluginFactory>
         <interceptor type="com.moxa.dream.driver.page.interceptor.PageInterceptor"/>
     </pluginFactory>
-    <listenerFactory>
-<!--        <listener type="com.moxa.dream.driver.listener.DebugListener"/>-->
-    </listenerFactory>
-    <dialectFactory dialect="${mysql}">
-    </dialectFactory>
-    <transactionFactory>
-    </transactionFactory>
-    <dataSourceFactory type="${ds}">
+    <dataSourceFactory type="com.moxa.dream.example.driver.MyDataSourceFactory">
     </dataSourceFactory>
 </configuration>

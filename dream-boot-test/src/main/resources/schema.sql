@@ -1,4 +1,20 @@
-drop table if exists city;
+DROP TABLE IF EXISTS user;
 
-create table city (id int primary key auto_increment, name varchar, state varchar, country varchar);
+CREATE TABLE user
+(
+    id BIGINT(20) NOT NULL COMMENT '主键ID',
+    name VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名',
+    age INT(11) NULL DEFAULT NULL COMMENT '年龄',
+    email VARCHAR(50) NULL DEFAULT NULL COMMENT '邮箱',
+    PRIMARY KEY (id)
+);
 
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog`
+(
+    `id`   int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) DEFAULT NULL  COMMENT '文章名称',
+    `publish_time` DATE DEFAULT NULL COMMENT '发表时间',
+    `user_id` BIGINT(20) NOT NULL COMMENT '所属用户',
+    PRIMARY KEY (`id`)
+);

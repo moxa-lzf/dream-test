@@ -5,7 +5,7 @@ import com.moxa.dream.antlr.factory.AntlrInvokerFactory;
 import com.moxa.dream.antlr.factory.InvokerFactory;
 import com.moxa.dream.antlr.invoker.ScanInvoker;
 import com.moxa.dream.antlr.smt.PackageStatement;
-import com.moxa.dream.antlr.sql.ToAssist;
+import com.moxa.dream.antlr.config.Assist;
 import com.moxa.dream.antlr.sql.ToMYSQL;
 import com.moxa.dream.example.antlr.AbstractSqlTest;
 import com.moxa.dream.util.common.ObjectWrapper;
@@ -38,7 +38,7 @@ public class ScanInvokerSqlTest extends AbstractSqlTest {
         try {
             Map<Class,Object>map=new HashMap<>();
             map.put(ObjectWrapper.class,ObjectWrapper.wrapper(objectMap));
-            System.out.println(new ToMYSQL().toStr(packageStatement, new ToAssist(invokerFactoryList, map),null));        } catch (InvokerException e) {
+            System.out.println(new ToMYSQL().toStr(packageStatement, new Assist(invokerFactoryList, map),null));        } catch (InvokerException e) {
             throw new RuntimeException(e);
         }
     }
@@ -50,7 +50,7 @@ public class ScanInvokerSqlTest extends AbstractSqlTest {
         try {
             Map<Class,Object>map=new HashMap<>();
             map.put(ObjectWrapper.class,ObjectWrapper.wrapper(objectMap));
-            System.out.println(new ToMYSQL().toStr(packageStatement, new ToAssist(invokerFactoryList, map),null));        } catch (InvokerException e) {
+            System.out.println(new ToMYSQL().toStr(packageStatement, new Assist(invokerFactoryList, map),null));        } catch (InvokerException e) {
             throw new RuntimeException(e);
         }
     }
@@ -58,7 +58,7 @@ public class ScanInvokerSqlTest extends AbstractSqlTest {
     public void testUpdateInvoker() {
         PackageStatement packageStatement = createStatement("@scan(`update dual set 1=1`)", null);
         try {
-            System.out.println(new ToMYSQL().toStr(packageStatement, new ToAssist(invokerFactoryList, null),null));
+            System.out.println(new ToMYSQL().toStr(packageStatement, new Assist(invokerFactoryList, null),null));
         } catch (InvokerException e) {
             throw new RuntimeException(e);
         }
@@ -67,7 +67,7 @@ public class ScanInvokerSqlTest extends AbstractSqlTest {
     public void testDeleteInvoker() {
         PackageStatement packageStatement = createStatement("@scan(`delete from dual`)", null);
         try {
-            System.out.println(new ToMYSQL().toStr(packageStatement, new ToAssist(invokerFactoryList, null),null));        } catch (InvokerException e) {
+            System.out.println(new ToMYSQL().toStr(packageStatement, new Assist(invokerFactoryList, null),null));        } catch (InvokerException e) {
             throw new RuntimeException(e);
         }
     }

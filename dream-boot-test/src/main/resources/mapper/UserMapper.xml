@@ -1,0 +1,16 @@
+<mapper xmlns="http://moxa.com/schema/mapper">
+    <method name="findByName">
+        <sql>select id, name, age,email from user where name = @$(name)</sql>
+    </method>
+    <method name="selectAll">
+        <sql>select @all() from user</sql>
+        <eachList>
+            <each>
+                <methodRef field="blogList" value="com.moxa.dream.boot.mapper.BlogMapper.selectBlogByUserId"></methodRef>
+                <argList>
+                    <arg name="userId" value="id"/>
+                </argList>
+            </each>
+        </eachList>
+    </method>
+</mapper>

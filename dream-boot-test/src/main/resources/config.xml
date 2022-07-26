@@ -1,15 +1,17 @@
-<configuration xmlns="http://moxa.org/schema/config">
-    <cacheFactory>
+<configuration xmlns="http://moxa.com/schema/config">
+    <cacheFactory type="com.moxa.dream.system.cache.factory.MemoryCacheFactory">
         <property name="enabled" value="false"/>
     </cacheFactory>
-    <dialectFactory dialect="${mysql}"></dialectFactory>
     <tableFactory>
         <mapping package="com.moxa.dream.boot"/>
     </tableFactory>
     <mapperFactory>
         <mapping package="com.moxa.dream.boot"/>
     </mapperFactory>
+    <pluginFactory>
+        <interceptor type="com.moxa.dream.driver.page.interceptor.PageInterceptor"/>
+    </pluginFactory>
     <listenerFactory>
-<!--        <listener type="com.moxa.dream.driver.listener.DebugListener"/>-->
+        <listener type="com.moxa.dream.driver.listener.DebugListener"/>
     </listenerFactory>
 </configuration>
